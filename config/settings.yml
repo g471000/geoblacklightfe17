@@ -20,7 +20,7 @@ FIELDS:
   :WXS_IDENTIFIER: 'id'
   :RIGHTS: 'dc_rights_s'
   :PROVENANCE: 'dct_provenance_s'
-  :GEOM_TYPE: 'dc_geomtype_s'
+  :GEOM_TYPE: 'layer_geom_type_s'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
   :SUBJECT: 'dc_subject_sm'
   :REFERENCES: 'dct_references_s'
