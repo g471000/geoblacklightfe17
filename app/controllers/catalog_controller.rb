@@ -29,7 +29,7 @@ class CatalogController < ApplicationController
     # config.index.show_link = 'title_display'
     # config.index.record_display_type = 'format'
 
-    config.index.title_field = Settings.FIELDS.WXS_IDENTIFIER
+    config.index.title_field = Settings.FIELDS.TITLE
     config.index.creator_field = Settings.FIELDS.CREATOR
     config.index.format_field = Settings.FIELDS.FILE_FORMAT
 
@@ -63,7 +63,7 @@ class CatalogController < ApplicationController
     # config.add_facet_field 'format', :label => 'Format'
     config.add_facet_field 'hashtags', :fq => "hashtags:solar", :label => 'Hashtags', limit: 12
     # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    # config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
+    #config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
     # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
     # config.add_facet_field 'lc_1letter_facet', :label => 'Call Number'
     # config.add_facet_field 'subject_geo_facet', :label => 'Region'
@@ -111,7 +111,7 @@ class CatalogController < ApplicationController
     # config.add_index_field Settings.FIELDS.PROVENANCE, :label => 'Institution:'
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
-    # config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
+    config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
     #config.add_index_field Settings.FIELDS.YEAR
     config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit

@@ -22,7 +22,7 @@ FIELDS:
   :PROVENANCE: 'dct_provenance_s'
   :GEOM_TYPE: 'layer_geom_type_s'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
-  :SUBJECT: 'dc_subject_sm'
+  :SUBJECT: 'dc_topics_s'
   :REFERENCES: 'dct_references_s'
   :YEAR: 'solr_year_i'
   :CREATOR: 'dc_creator_sm'

@@ -12,7 +12,7 @@
 
 development:
   adapter: solr
-  url: <%= "http://127.0.0.1:9983/solr/getar-cs5604f17-solar-eclipse_shard1_replica1" %>
+  url: <%= "http://127.0.0.1:9983/solr/getar-cs5604f17_shard1_replica1" %>
 
   # url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/blacklight-core" %>
 test: &test
