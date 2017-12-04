@@ -1,0 +1,50 @@
+.show-tools {
+  a .geoblacklight {
+    color: gray-light;
+  }
+
+  .geoblacklight-citation {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  .geoblacklight-data-dictionary {
+    text-align: center;
+    width: 1.4em;
+  }
+  
+  .geoblacklight-sms {
+    text-align: center;
+    width: 1.4em;
+  }
+  
+  .geoblacklight-email {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  .geoblacklight-web_services {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  .geoblacklight-metadata {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  .geoblacklight-carto {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  // DEPRECATED: Will be removed in GeoBlacklight v2.0
+  .geoblacklight-cartodb {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  .downloads {
+    padding-top: 15px;
+  }
+}

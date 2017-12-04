@@ -1,0 +1,8 @@
+<ul class="facet-values list-unstyled">
+  <% paginator = facet_paginator(facet_field, display_facet) %>
+  <% paginator.items.each do |item| -%>
+  <li>
+    <%= render_facet_item_with_icon(field_name, item) %>
+  </li>
+  <% end %>
+</ul>

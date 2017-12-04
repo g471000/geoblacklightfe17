@@ -1,0 +1,60 @@
+// Additional customizations beyond generated FontCustom styles
+
+.geoblacklight-icon {
+  color: gray-light;
+  font-size: 1.2em;
+}
+
+.geoblacklight-stanford {
+  color: #8c1515;
+}
+
+.geoblacklight-public {
+  @extend .fa, .fa-unlock, .text-muted !optional;
+}
+
+.geoblacklight-restricted {
+  @extend .fa, .fa-lock, .text-muted !optional;
+  width: 17px;
+}
+
+.geoblacklight-citation {
+  @extend .fa, .fa-bookmark !optional;
+}
+
+.geoblacklight-data-dictionary {
+  @extend .fa, .fa-book !optional;
+}
+
+.geoblacklight-sms {
+  @extend .fa, .fa-mobile !optional;
+}
+
+.geoblacklight-email {
+  @extend .fa, .fa-envelope !optional;
+}
+
+.geoblacklight-relations-ancestor {
+  @extend .fa, .fa-pagelines !optional;
+}
+
+.geoblacklight-relations-descendant {
+  @extend .fa, .fa-leaf !optional;
+}
+
+.geoblacklight-web_services {
+  @extend .fa, .fa-external-link !optional;
+}
+
+.geoblacklight-metadata {
+  @extend .fa, .fa-file-text-o !optional;
+}
+
+.geoblacklight-carto {
+  @extend .fa, .fa-map-marker !optional;
+}
+
+// DEPRECATED: Will be removed in GeoBlacklight v2.0
+.geoblacklight-cartodb {
+  //@extend .geoblacklight-cartodb;
+}

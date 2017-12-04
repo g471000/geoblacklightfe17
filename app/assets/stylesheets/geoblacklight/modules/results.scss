@@ -1,0 +1,50 @@
+[data-map="index"] {
+  height: 480px;
+}
+
+.more-info-area {
+  max-height: 100px;
+}
+
+.text-span{
+  width:80%;
+  float:left;
+}
+
+.hide-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:block
+}
+
+.status-icons {
+  float: right;
+  margin-right: 10px;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-caret-right:before {
+  content: "\f0da";
+}
+.index_title {
+  @extend .text-span;
+  @extend .hide-overflow;
+  @extend h5 !optional;
+}
+
+.caret-toggle {
+  @extend .fa, .fa-caret-right;
+  cursor: pointer;
+  width: 10px;
+
+  &.open {
+    //@extend .fa, .fa-caret-down;
+  }
+}

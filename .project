@@ -20,10 +20,5 @@
 			<type>2</type>
 			<location>/home/vagrant/.rbenv</location>
 		</link>
-		<link>
-			<name>rbenv</name>
-			<type>2</type>
-			<location>/home/vagrant/.rbenv</location>
-		</link>
 	</linkedResources>
 </projectDescription>

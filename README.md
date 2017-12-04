@@ -1,24 +1,38 @@
-# README
+# GeoBlacklight
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/geoblacklight/geoblacklight.svg?branch=master)](https://travis-ci.org/geoblacklight/geoblacklight) | [![Coverage Status](https://img.shields.io/coveralls/geoblacklight/geoblacklight.svg)](https://coveralls.io/r/geoblacklight/geoblacklight?branch=coveralls) | [![Gem Version](https://img.shields.io/gem/v/geoblacklight.svg)](https://github.com/geoblacklight/geoblacklight/releases)
+[![Stories in Ready](https://badge.waffle.io/geoblacklight/geoblacklight.png?label=ready&title=Ready)](https://waffle.io/geoblacklight/geoblacklight)
 
-Things you may want to cover:
+GeoBlacklight is a world-class discovery platform for geospatial (GIS) holdings. It
+is an open collaborative project aiming to build off of the successes
+of the Blacklight Solr-powered discovery interface and the
+multi-institutional OpenGeoportal federated metadata sharing
+communities. We're actively looking for community input and development partners.
 
-* Ruby version
+### [Installation](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
-* System dependencies
+Creating a new GeoBlacklight application from the template
 
-* Configuration
+```
+$ rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/template.rb
+```
 
-* Database creation
+To launch app:
 
-* Database initialization
+```
+$ cd app-name
+$ rake geoblacklight:server
+```
 
-* How to run the test suite
+Or install with [Docker](https://github.com/geoblacklight/geoblacklight-docker)
+For more information see the [installation guide](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Contributing
+Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 
-* Deployment instructions
+### [Development](https://github.com/geoblacklight/geoblacklight/wiki/Development)
 
-* ...
+See the [development guide](https://github.com/geoblacklight/geoblacklight/wiki/Development) on our wiki for more information about setting up your development environment.
+
+
+Please see the full documentation hosted on our Wiki [Wiki](https://github.com/geoblacklight/geoblacklight/wiki)

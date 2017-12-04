@@ -1,0 +1,14 @@
+.twitter-typeahead {
+  float: left;
+  width: 100%;
+  z-index: 1001;
+
+  .tt-input.form-control {
+    width: 100%;
+  }
+
+  .tt-hint.form-control {
+    width: 100%;
+  }
+
+}

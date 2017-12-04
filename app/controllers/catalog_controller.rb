@@ -60,35 +60,32 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
-    # config.add_facet_field 'format', :label => 'Format'
-    config.add_facet_field 'hashtags', :fq => "hashtags:solar", :label => 'Hashtags', limit: 12
+
+    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 8
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
+    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Source Type', :limit => 8
+    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
+    config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
+    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
+    config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"    
+    config.add_facet_field 'hashtags', :fq => "hashtags:solar", :label => 'Hashtags', limit: 8
+    # config.add_facet_field 'format', :label => 'Format'    
     # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    #config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
+    # config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
     # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
     # config.add_facet_field 'lc_1letter_facet', :label => 'Call Number'
     # config.add_facet_field 'subject_geo_facet', :label => 'Region'
     # config.add_facet_field 'solr_bbox', :fq => "solr_bbox:IsWithin(-88,26,-79,36)", :label => 'Spatial'
-
     # config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
-
     # config.add_facet_field 'example_query_facet_field', :label => 'Publish Date', :query => {
     #    :years_5 => { :label => 'within 5 Years', :fq => "pub_date:[#{Time.now.year - 5 } TO *]" },
     #    :years_10 => { :label => 'within 10 Years', :fq => "pub_date:[#{Time.now.year - 10 } TO *]" },
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
-    config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
-    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
-    #config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 8
-
-    #config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
-
-    config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -112,7 +109,7 @@ class CatalogController < ApplicationController
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
     config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
-    #config.add_index_field Settings.FIELDS.YEAR
+    config.add_index_field Settings.FIELDS.YEAR
     config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
     config.add_index_field Settings.FIELDS.PUBLISHER
@@ -124,14 +121,17 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
+    
+    config.add_show_field Settings.FIELDS.FILE_FORMAT, label: 'Source Type', itemprop: 'format'
+    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
     config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
-    #config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
+
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_search: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
-    #config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
-    config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
+    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
+    # config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -152,7 +152,7 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     config.add_search_field 'all_fields', :label => 'All Fields'
-    # config.add_search_field 'dc_title_ti', :label => 'Title'
+     config.add_search_field 'dc_title_s', :label => 'Title'
     # config.add_search_field 'dc_description_ti', :label => 'Description'
 
     # Now we see how to over-ride Solr request handler defaults, in this
@@ -205,10 +205,10 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    #config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
-    #config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_sort asc", :label => 'year'
+    # config.add_sort_field 'score desc, dc_title_s asc', :label => 'relevance'
+    config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_s asc", :label => 'year'
     config.add_sort_field "#{Settings.FIELDS.PUBLISHER} asc", :label => 'publisher'
-    #config.add_sort_field 'dc_title_sort asc', :label => 'title'
+    config.add_sort_field "dc_title_s asc", :label => 'title'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
