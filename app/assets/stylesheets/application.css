@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+a.home-facet-link {
+    display: inline-block;
+    width: 90%;
+    padding: 2px;
+}
+
+#header-navbar .navbar-brand {
+    height: 120px;
+    width: 480px;
+    background: transparent url(/assets/getar-logo.png) no-repeat center left;
+}
+h3.index_title{
+    font-size: 1.4em;
+}
+h3.index_title .document-counter{
+    color: #666666;
+}h3.index_title .caret-toggle{
+    display:none;
+}
+#facet-panel-collapse > .panel {
+
+}

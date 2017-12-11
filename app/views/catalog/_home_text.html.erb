@@ -12,7 +12,107 @@
 
 <div class='container'>
   <div class='row'>
-    <div class='col-md-6'>
+    <div class='col-md-12'>
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <h4 class="sr-only"><%= facet_field_label(Settings.FIELDS.SUBJECT) %></h4>
+          <div class="panel panel-default facet_limit blacklight-<%= Settings.FIELDS.SUBJECT %>">
+            <div class="collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-<%= Settings.FIELDS.SUBJECT %>" aria-expanded="true">
+              <h3 class="panel-title facet-field-heading">
+                <a data-no-turbolink="true" href="#"><%= facet_field_label(Settings.FIELDS.SUBJECT) %></a>
+              </h3>
+            </div>
+            <div id="facet-dct_spatial_sm" class="panel-collapse facet-content collapse in" aria-expanded="true" style="">
+              <div class="panel-body">
+                <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
+                <!--<ul class="facet-values list-unstyled">
+                  <li>
+                    <span class="facet-label">
+                      <span class="geoblacklight-icon"></span>
+                      <a class="facet_select" href="">Item</a>
+                    </span>
+                    <span class="facet-count">xxx</span>
+                  </li>
+
+                  <li class="more_facets_link">
+                    <a class="more_facets_link" href="/catalog/facet/dct_spatial_sm">more <span class="sr-only">Place</span> »</a>
+                  </li>
+                </ul>-->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+          <h4 class="sr-only"><%= facet_field_label(Settings.FIELDS.PART_OF) %></h4>
+          <div class="panel panel-default facet_limit blacklight-<%= Settings.FIELDS.PART_OF %> ">
+            <div class=" collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-<%= Settings.FIELDS.PART_OF %>">
+              <h3 class="panel-title facet-field-heading">
+                <a data-no-turbolink="true" href="#"><%= facet_field_label(Settings.FIELDS.PART_OF) %></a>
+              </h3>
+            </div>
+            <div id="facet-layer_geom_type_s" class="panel-collapse facet-content in">
+              <div class="panel-body">
+                <%= render_facet_tags [Settings.FIELDS.PART_OF] %>
+                <!--<ul class="facet-values list-unstyled">
+                  <li>
+                    <span class="facet-label">
+                      <span class="geoblacklight-icon"></span>
+                      <a class="facet_select" href="">Item</a>
+                    </span>
+                    <span class="facet-count">xxx</span>
+                  </li>
+
+                  <li class="more_facets_link">
+                    <a class="more_facets_link" href="/catalog/facet/dc_subject_sm">more <span class="sr-only">Subject</span> »</a>
+                  </li>
+                </ul>-->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+          <h4 class="sr-only"><%= facet_field_label(Settings.FIELDS.HASHTAGS) %></h4>
+          <div class="panel panel-default facet_limit blacklight-<%= Settings.FIELDS.HASHTAGS %> ">
+            <div class=" collapse-toggle panel-heading" data-toggle="collapse" data-target="#<%= Settings.FIELDS.HASHTAGS %>">
+              <h3 class="panel-title facet-field-heading">
+                <a data-no-turbolink="true" href="#"><%= facet_field_label(Settings.FIELDS.HASHTAGS) %></a>
+              </h3>
+            </div>
+            <div id="facet-dc_subject_sm" class="panel-collapse facet-content in">
+              <div class="panel-body">
+                <%= render_facet_tags [Settings.FIELDS.HASHTAGS] %>
+                <!--<ul class="facet-values list-unstyled">
+                  <li>
+
+                    <span class="facet-label">
+                      <span class="geoblacklight-icon"></span>
+                      <a class="facet_select" href="">Item</a>
+                    </span>
+                    <span class="facet-count">xxx</span>
+                  </li>
+
+                  <li class="more_facets_link">
+                    <a class="more_facets_link" href="/catalog/facet/dc_subject_sm">more <span class="sr-only">Subject</span> »</a>
+                  </li>
+                </ul>-->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!--
       <%= content_tag :h3, t('geoblacklight.home.category_heading'), class: 'text-center' %>
       <div class='category-block'>
         <div class='category-icon'>
@@ -42,8 +142,9 @@
         <h4>Subject</h4>
         <%= render_facet_tags [Settings.FIELDS.FILE_FORMAT] %>
       </div>
+      -->
     </div>
-    <div class='col-md-6 text-center'>
+    <div class='col-md-12 text-center'>
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
       <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>

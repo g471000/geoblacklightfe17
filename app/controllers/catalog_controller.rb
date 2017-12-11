@@ -11,8 +11,9 @@ class CatalogController < ApplicationController
       :start => 0,
       :rows => 10,
       :qt => 'select',
-      
-      'q.alt' => '*:*'
+      :q => '*',
+      'q.alt' => '*:*',
+      #:facet => true,
     }
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
@@ -67,9 +68,9 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
     config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
-    config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
+    # config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
-    config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
+    # config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"    
     config.add_facet_field 'hashtags', :fq => "hashtags:solar", :label => 'Hashtags', limit: 8
     # config.add_facet_field 'format', :label => 'Format'    
@@ -110,7 +111,7 @@ class CatalogController < ApplicationController
     # # config.add_index_field 'Area', :label => 'Area:'
     config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
     config.add_index_field Settings.FIELDS.YEAR
-    config.add_index_field Settings.FIELDS.CREATOR
+    # config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
     config.add_index_field Settings.FIELDS.PUBLISHER
 
@@ -124,13 +125,15 @@ class CatalogController < ApplicationController
     
     config.add_show_field Settings.FIELDS.FILE_FORMAT, label: 'Source Type', itemprop: 'format'
     config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
-    config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
+    # config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
 
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_search: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
     config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
+    config.add_show_field Settings.FIELDS.HASHTAGS, label: 'Hashtags', itemprop: 'HASHTAGS'
+    config.add_show_field Settings.FIELDS.SCREEN_NAME, label: 'Tweet User', itemprop: 'Tweet user'
     # config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
 
     # "fielded" search configuration. Used by pulldown among other places.
