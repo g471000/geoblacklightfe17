@@ -119,3 +119,6 @@ a.home-facet-link {
 #map {
     background: #000; /* Matching DarkMatter base map theme*/
 }
+footer a{
+    padding: 5px 10px;
+}

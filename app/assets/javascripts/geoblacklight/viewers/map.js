@@ -14,7 +14,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
 
   load: function() {
     if (this.data.mapBbox) {
-      this.options.bbox = L.bboxToBounds(this.data.mapBbox );
+      this.options.bbox = L.bboxToBounds(this.data.mapBbox);
     }
     this.map = L.map(this.element).fitBounds(this.options.bbox);
     console.log(this.map);
@@ -37,6 +37,10 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
    */
   addBoundsOverlay: function(bounds) {
     if (bounds instanceof L.LatLngBounds) {
+        //console.log(bounds);
+        //add centroid of bounds
+        this.overlay.addLayer(L.marker(bounds.getCenter()));
+
       this.overlay.addLayer(L.polygon([
         bounds.getSouthWest(),
         bounds.getSouthEast(),
