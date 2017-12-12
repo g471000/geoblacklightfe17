@@ -36,7 +36,7 @@
       },
       delay: 800,
       staticButton: '<a class="btn btn-primary">Redo search here <span class="glyphicon glyphicon-repeat"></span></a>',
-      dynamicButton: '<label><input type="checkbox" checked> Search when I move the map</label>'
+      dynamicButton: '<label for="spatial-search-check" class="btn btn-primary"><input type="checkbox" name="spatial-search-check" checked> Search when move map</label>'
     },
 
     initialize: function(options) {

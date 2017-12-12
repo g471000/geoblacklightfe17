@@ -14,6 +14,11 @@
  *= require_self
  */
 
+/* Customize application style
+
+*/
+@import 'bootstrap-flatly/bootstrap';
+
 a.home-facet-link {
     display: inline-block;
     width: 90%;
@@ -25,6 +30,9 @@ a.home-facet-link {
     width: 480px;
     background: transparent url(/assets/getar-logo.png) no-repeat center left;
 }
+#search-navbar .input-group-addon.for-search-field {
+    background-color: inherit;
+}
 h3.index_title{
     font-size: 1.4em;
 }
@@ -34,5 +42,54 @@ h3.index_title .document-counter{
     display:none;
 }
 #facet-panel-collapse > .panel {
+    padding: 0;
+}
 
+#content .constraints-container > .panel-body {
+
+}
+#content .constraint-value:focus,
+#content .constraint-value:hover { /* overide geoblacklight button */
+    color: #ffffff;
+    background-color: #ec971f;
+    border-color: rgba(0, 0, 0, 0);
+}
+.facet-values li .selected {
+    color: #5cb85c;
+}
+
+.leaflet-control.search-control{
+    background: transparent;
+    border: 0;
+    mso-border-shadow: no;
+    box-shadow: none;
+}
+.leaflet-control.search-control label{
+    padding-left: 25px;
+}
+.status-icons .geoblacklight-ico {
+    font-size: 1.5em;
+}
+.geoblacklight-point:before {
+    font-family:'FontAwesome';
+    content: "\f041";
+}
+.geoblacklight-webpage:before { /*fa-window-maximize*/
+    font-family:'FontAwesome';
+    content: "\f2d0";
+}
+.geoblacklight-twitter:before {/*fa-twitter*/
+    font-family:'FontAwesome';
+    content: "\f099";
+}
+
+.search_history .query a:hover {
+    text-decoration: none;
+}
+.search_history .panel-body:hover {
+    background: #2a323a;
+
+}
+.search_history .constraint span.filterName {
+    color: #fff;
 }

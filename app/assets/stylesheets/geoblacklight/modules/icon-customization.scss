@@ -54,6 +54,16 @@
   @extend .fa, .fa-map-marker !optional;
 }
 
+.geoblacklight-point {
+  @extend .fa, .fa-map-marker, .text-muted !optional;
+}
+.geoblacklight-tweet {
+  @extend .fa, .fa-twitter, .text-muted !optional;
+}
+.geoblacklight-webpage {
+  @extend .fa, .fa-window-maximize, .text-muted !optional;
+}
+
 // DEPRECATED: Will be removed in GeoBlacklight v2.0
 .geoblacklight-cartodb {
   //@extend .geoblacklight-cartodb;
