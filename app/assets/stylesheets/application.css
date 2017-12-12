@@ -19,12 +19,6 @@
 */
 @import 'bootstrap-flatly/bootstrap';
 
-a.home-facet-link {
-    display: inline-block;
-    width: 90%;
-    padding: 2px;
-}
-
 #header-navbar .navbar-brand {
     height: 120px;
     width: 480px;
@@ -41,8 +35,33 @@ h3.index_title .document-counter{
 }h3.index_title .caret-toggle{
     display:none;
 }
+
+.home-facets .facet-content .panel {
+    position: relative;
+}
+
 .home-facets .facet-content .panel-body {
-    min-height: 300px;
+    min-height: 270px;
+}
+a.home-facet-link {
+    display: inline-block;
+    width: 70%;
+    padding: 0 5px 0;
+    overflow: hidden;
+}
+.home-facet-count {
+    display: inline-block;
+    width: 25%;
+    text-align: right;
+}
+.home-more-facets-link {
+    clear: both;
+    display:block;
+    text-align: right;
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    padding: 3px 10px;
 }
 #facet-panel-collapse > .panel {
     padding: 0;
@@ -95,4 +114,8 @@ h3.index_title .document-counter{
 }
 .search_history .constraint span.filterName {
     color: #fff;
+}
+
+#map {
+    background: #000; /* Matching DarkMatter base map theme*/
 }

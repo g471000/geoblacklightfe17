@@ -18,3 +18,5 @@
 //= require blacklight/blacklight
 
 //= require_tree .
+
+console.log("done")

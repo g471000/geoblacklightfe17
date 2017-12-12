@@ -14,7 +14,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
 
   load: function() {
     if (this.data.mapBbox) {
-      this.options.bbox = L.bboxToBounds(this.data.mapBbox);
+      this.options.bbox = L.bboxToBounds(this.data.mapBbox );
     }
     this.map = L.map(this.element).fitBounds(this.options.bbox);
     console.log(this.map);
