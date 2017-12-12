@@ -109,11 +109,12 @@ class CatalogController < ApplicationController
     # config.add_index_field Settings.FIELDS.PROVENANCE, :label => 'Institution:'
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
-    config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
-    config.add_index_field Settings.FIELDS.YEAR
-    # config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
-    config.add_index_field Settings.FIELDS.PUBLISHER
+    config.add_index_field Settings.FIELDS.SCREEN_NAME, :label => 'Tweet author:'
+    config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Subject(s)'
+    config.add_index_field Settings.FIELDS.YEAR
+
+    # config.add_index_field Settings.FIELDS.PUBLISHER
 
 
     # solr fields to be displayed in the show (single result) view

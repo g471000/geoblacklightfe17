@@ -22,7 +22,7 @@
                 <a data-no-turbolink="true" href="#"><%= facet_field_label(Settings.FIELDS.SUBJECT) %></a>
               </h3>
             </div>
-            <div id="facet-dct_spatial_sm" class="panel-collapse facet-content collapse in" aria-expanded="true" style="">
+            <div id="<%= facet_field_label(Settings.FIELDS.SUBJECT) %>" class="panel-collapse facet-content collapse in" aria-expanded="true" style="">
               <div class="panel-body">
                 <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
                 <!--<ul class="facet-values list-unstyled">
@@ -53,7 +53,7 @@
                 <a data-no-turbolink="true" href="#"><%= facet_field_label(Settings.FIELDS.PART_OF) %></a>
               </h3>
             </div>
-            <div id="facet-layer_geom_type_s" class="panel-collapse facet-content in">
+            <div id="facet-<%= facet_field_label(Settings.FIELDS.PART_OF) %>" class="panel-collapse facet-content in">
               <div class="panel-body">
                 <%= render_facet_tags [Settings.FIELDS.PART_OF] %>
                 <!--<ul class="facet-values list-unstyled">
@@ -84,7 +84,7 @@
                 <a data-no-turbolink="true" href="#"><%= facet_field_label(Settings.FIELDS.HASHTAGS) %></a>
               </h3>
             </div>
-            <div id="facet-dc_subject_sm" class="panel-collapse facet-content in">
+            <div id="facet-<%= facet_field_label(Settings.FIELDS.HASHTAGS) %>" class="panel-collapse facet-content in">
               <div class="panel-body">
                 <%= render_facet_tags [Settings.FIELDS.HASHTAGS] %>
                 <!--<ul class="facet-values list-unstyled">

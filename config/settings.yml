@@ -35,6 +35,7 @@ FIELDS:
   :HASHTAGS: 'hashtags'
   :PUBLISH: 'dct_publish_dt'
   :SCREEN_NAME: 'user_screen_name'
+  :URL: 'url'
 
 # Institution deployed at
 INSTITUTION: 'Virginia Tech'

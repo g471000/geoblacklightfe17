@@ -81,6 +81,10 @@ module Geoblacklight
       fetch(Settings.FIELDS.FILE_FORMAT)
     end
 
+    def geom_type
+      fetch(Settings.FIELDS.GEOM_TYPE)
+    end
+
     ##
     # Provides a convenience method to access a SolrDocument's References
     # endpoint url without having to check and see if it is available
