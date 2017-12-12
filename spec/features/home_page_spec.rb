@@ -8,7 +8,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     expect(page).not_to have_css '#search-navbar'
     within '.jumbotron' do
       expect(page).to have_css 'h2', text: 'Global Event and Trend'
-      expect(page).to have_css 'h3', text: 'Find the maps and data you need'
+      expect(page).to have_css 'h3', text: 'Web archive of urgent global challenge events and initiatives'
       expect(page).to have_css 'form.search-query-form'
     end
   end
