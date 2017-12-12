@@ -177,4 +177,5 @@ module GeoblacklightHelper
   def first_metadata?(document, metadata)
     document.references.shown_metadata.first.type == metadata.type
   end
+
 end

@@ -29,7 +29,7 @@ FIELDS:
   :DESCRIPTION: 'dc_description_s'
   :PUBLISHER: 'dc_publisher_s'
   :PART_OF: 'dct_isPartOf_sm'   #for collection name
-  :TEMPORAL: 'dct_temporal_sm'
+  :TEMPORAL: 'dct_publish_dt'
   :TITLE: 'dc_title_s'
   :SOURCE: 'dc_source_sm'
   :HASHTAGS: 'hashtags'

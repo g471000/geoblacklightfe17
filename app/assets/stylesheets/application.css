@@ -41,6 +41,9 @@ h3.index_title .document-counter{
 }h3.index_title .caret-toggle{
     display:none;
 }
+.home-facets .facet-content .panel-body {
+    min-height: 300px;
+}
 #facet-panel-collapse > .panel {
     padding: 0;
 }

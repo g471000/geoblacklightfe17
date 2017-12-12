@@ -1,0 +1,39 @@
+<% @page_title = t('blacklight.saved_searches.page_title', :application_name => application_name) %>
+
+<div id="content" class="col-md-9">
+
+<h2 class='page-heading'><%= t('blacklight.saved_searches.title') %></h2>
+
+<%- if current_or_guest_user.blank? -%>
+  
+  <h3 class='section-heading'><%= t('blacklight.saved_searches.need_login') %></h3>
+  
+<%- elsif @searches.blank? -%>
+  
+  <h3 class='section-heading'><%= t('blacklight.saved_searches.no_searches') %></h3>
+  
+<%- else -%>
+  <p>
+  <%= link_to t('blacklight.saved_searches.clear.action_title'), blacklight.clear_saved_searches_path, :method => :delete, :data => { :confirm => t('blacklight.saved_searches.clear.action_confirm') }, :class => 'btn btn-danger pull-right'  %>
+  </p>
+
+  <h3 class='section-heading'><%= t('blacklight.saved_searches.list_title') %></h3>
+
+  <div class="panel-group search_history">
+  <%- @searches.each do |search| -%>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-8 col-md-9 query"><%= link_to_previous_search(search_state.reset(search.query_params).to_hash) %></div>
+        <div class="col-sm-4 col-md-3 actions">
+          <%= button_to t('blacklight.saved_searches.delete'), blacklight.forget_search_path(search.id), :class => 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+    </div>
+  <%- end -%>
+  </div>
+
+<%- end -%>
+
+</div>

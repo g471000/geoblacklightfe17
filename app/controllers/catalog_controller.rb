@@ -73,7 +73,8 @@ class CatalogController < ApplicationController
     # config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"    
     config.add_facet_field Settings.FIELDS.HASHTAGS, :label => 'Hashtags', limit: 8
-    # config.add_facet_field 'format', :label => 'Format'    
+
+    # config.add_facet_field 'format', :label => 'Format'
     # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     # config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
     # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
@@ -123,18 +124,19 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
-    
-    config.add_show_field Settings.FIELDS.FILE_FORMAT, label: 'Source Type', itemprop: 'format'
-    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
-    # config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
-    config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
-    config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
+
+    config.add_show_field Settings.FIELDS.FILE_FORMAT, label: 'Source Type', itemprop: 'format', link_to_search: true
+    config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Full Text', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
+    config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
+
+    config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf', link_to_search: true
+    config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author', link_to_search: true
+    config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher', link_to_search: true
 
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_search: true
-    config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
-    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
-    config.add_show_field Settings.FIELDS.HASHTAGS, label: 'Hashtags', itemprop: 'HASHTAGS'
-    config.add_show_field Settings.FIELDS.SCREEN_NAME, label: 'Tweet User', itemprop: 'Tweet user'
+    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Data & Time', itemprop: 'temporal'
+    config.add_show_field Settings.FIELDS.HASHTAGS, label: 'Hashtags', itemprop: 'HASHTAGS',link_to_search: true
+    config.add_show_field Settings.FIELDS.URL, label: 'Document URL', itemprop: 'document-url'
     # config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
 
     # "fielded" search configuration. Used by pulldown among other places.
@@ -156,7 +158,7 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     config.add_search_field 'all_fields', :label => 'All Fields'
-     config.add_search_field 'dc_title_s', :label => 'Title'
+    config.add_search_field 'dc_title_s', :label => 'Title'
     # config.add_search_field 'dc_description_ti', :label => 'Description'
 
     # Now we see how to over-ride Solr request handler defaults, in this
@@ -210,7 +212,7 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     # config.add_sort_field 'score desc, dc_title_s asc', :label => 'relevance'
-    config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_s asc", :label => 'year'
+    config.add_sort_field "#{Settings.FIELDS.TEMPORAL} desc, dc_title_s asc", :label => 'time'
     config.add_sort_field "#{Settings.FIELDS.PUBLISHER} asc", :label => 'publisher'
     config.add_sort_field "dc_title_s asc", :label => 'title'
 

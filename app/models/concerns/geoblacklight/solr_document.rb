@@ -82,7 +82,7 @@ module Geoblacklight
     end
 
     def geom_type
-      fetch(Settings.FIELDS.GEOM_TYPE)
+      fetch(Settings.FIELDS.GEOM_TYPE, '')
     end
 
     ##
